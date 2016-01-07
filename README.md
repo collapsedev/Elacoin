@@ -1,6 +1,7 @@
 Elacoin - an elastic cryptocurrency
 ===================================
-
+ Update to 0.6.6
+ 
 Hardfork Notice: Elacoin will switch to Scrypt-N Adaptive and KGW at September 24th, 2014 00:00:00 GMT!
 
 Elastic block reward algorithm based on the difficulty and Moore's Law
