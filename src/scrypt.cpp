@@ -286,7 +286,7 @@ void scrypt_N_1_1_256_sp_generic(const char *input, char *output, char *scratchp
 void (*scrypt_N_1_1_256_sp)(const char *input, char *output, char *scratchpad, unsigned char Nfactor);
 void scrypt_detect_sse2(unsigned int cpuid_edx)
 {
-    if (cpuid_edx & 1<<26)
+    if (true/*cpuid_edx & 1<<26*/)
     {
         scrypt_N_1_1_256_sp = &scrypt_N_1_1_256_sp_sse2;
         printf("scrypt: using scrypt-sse2 as detected.\n");
