@@ -1,3 +1,7 @@
+Web
+===================================
+https://bitcointalk.org/index.php?topic=766417.0
+
 Elacoin - an elastic cryptocurrency
 ===================================
  Update to 0.6.6
