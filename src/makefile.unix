@@ -6,6 +6,11 @@ USE_UPNP:=-
 
 DEFS=-DUSE_IPV6 -DBOOST_SPIRIT_THREADSAFE -DUSE_SSE2
 
+#BigNum OpenSSL requirement 1.0.X
+#Comment this lines if your system supports it
+OPENSSL_INCLUDE_PATH=/usr/local/ssl/include
+OPENSSL_LIB_PATH=/usr/local/ssl/lib
+
 DEFS += $(addprefix -I,$(CURDIR) $(CURDIR)/obj $(BOOST_INCLUDE_PATH) $(BDB_INCLUDE_PATH) $(OPENSSL_INCLUDE_PATH))
 LIBS = $(addprefix -L,$(BOOST_LIB_PATH) $(BDB_LIB_PATH) $(OPENSSL_LIB_PATH))
 
