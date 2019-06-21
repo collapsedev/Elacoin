@@ -3892,7 +3892,7 @@ void static BitcoinMiner(CWallet *pwallet)
             return;
         IncrementExtraNonce(pblock.get(), pindexPrev, nExtraNonce);
 
-        printf("Running BitcoinMiner with %d transactions in block\n", pblock->vtx.size());
+        printf("Running BitcoinMiner with %d transactions in block. Nfactor:%d\n", pblock->vtx.size(),GetNfactor(pblock->nTime));
 
 
         //
