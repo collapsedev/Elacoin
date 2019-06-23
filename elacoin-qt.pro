@@ -99,7 +99,7 @@ macx: {
     # do not enable this on windows, as it will result in a non-working executable!
 }
 # for extra security (see: https://wiki.debian.org/Hardening): this flag is GCC compiler-specific
-QMAKE_CXXFLAGS *= -D_FORTIFY_SOURCE=2 -msse2 -mstackrealign
+QMAKE_CXXFLAGS *= -D_FORTIFY_SOURCE=1 -msse2 -mstackrealign
 # for extra security on Windows: enable ASLR and DEP via GCC linker flags
 win32:QMAKE_LFLAGS *= -Wl,--dynamicbase -Wl,--nxcompat
 # on Windows: enable GCC large address aware linker flag
