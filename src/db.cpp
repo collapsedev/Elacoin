@@ -70,7 +70,7 @@ bool CDBEnv::Open(boost::filesystem::path pathEnv_)
     filesystem::create_directory(pathLogDir);
     filesystem::path pathErrorFile = pathDataDir / "db.log";
     printf("dbenv.open LogDir=%s ErrorFile=%s\n", pathLogDir.string().c_str(), pathErrorFile.string().c_str());
-
+#ifdef LINUX
     // LoadBlockIndex: Disk seek is very slow. We will try to load database in OS cache. Only works when (database size) < (memory size).
     filesystem::path pathtoidxfile = pathDataDir / "blkindex.dat";
     struct stat st;
@@ -88,7 +88,7 @@ bool CDBEnv::Open(boost::filesystem::path pathEnv_)
         close(fd);
     }
     //
-
+#endif
     unsigned int nEnvFlags = 0;
     if (GetBoolArg("-privdb", true))
         nEnvFlags |= DB_PRIVATE;

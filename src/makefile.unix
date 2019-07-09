@@ -6,6 +6,13 @@ USE_UPNP:=-
 
 DEFS=-DUSE_IPV6 -DBOOST_SPIRIT_THREADSAFE -DUSE_SSE2
 
+CXXFLAGS=-mtune=native -march=native
+
+# Uncomment for portable DB
+#BDB_LIB_SUFFIX=-4.8
+#BDB_INCLUDE_PATH=/usr/include/libdb4/
+#BDB_LIB_PATH=/usr/include/libdb4/
+
 #BigNum OpenSSL requirement 1.0.X
 #Comment this lines if your system supports it
 OPENSSL_INCLUDE_PATH=/usr/local/ssl/include

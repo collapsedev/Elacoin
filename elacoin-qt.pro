@@ -11,25 +11,34 @@ CONFIG += no_include_pwd
 CONFIG += thread
 CONFIG += static
 
-# for boost 1.37, add -mt to the boost libraries
-# use: qmake BOOST_LIB_SUFFIX=-mt
-# for boost thread win32 with _win32 sufix
-# use: BOOST_THREAD_LIB_SUFFIX=_win32-...
-# or when linking against a specific BerkelyDB version: BDB_LIB_SUFFIX=-4.8
+windows {
+#BOOST_LIB_SUFFIX=-mgw46-mt-sd-1_53
+#BOOST_INCLUDE_PATH=C:\deps\boost_1_53_0
+#BOOST_LIB_PATH=C:\deps\boost_1_53_0\stage\lib
+#BDB_LIB_SUFFIX=
+#BDB_INCLUDE_PATH=c:/deps/db-4.8.30.NC/build_unix
+#BDB_LIB_PATH=c:/deps/db-4.8.30.NC/build_unix
+#OPENSSL_INCLUDE_PATH=c:/deps/openssl-1.0.1e/include
+#OPENSSL_LIB_PATH=c:/deps/openssl-1.0.1e
+} else {
+# Uncomment for portable DB
+# BDB_LIB_SUFFIX=-4.8
+# BDB_INCLUDE_PATH=/usr/include/libdb4/
+# BDB_LIB_PATH=/usr/include/libdb4/
 
-# Dependency library locations can be customized with:
-#    BOOST_INCLUDE_PATH, BOOST_LIB_PATH, BDB_INCLUDE_PATH,
-#    BDB_LIB_PATH, OPENSSL_INCLUDE_PATH and OPENSSL_LIB_PATH respectively
-
-#BigNum OpenSSL requirement 1.0.X
-#Comment this lines if your system supports it
+#Force compatible BigNum OpenSSL 1.0.X.
+#Comment this lines if your system has compatible version..
 OPENSSL_INCLUDE_PATH=/usr/local/ssl/include
 OPENSSL_LIB_PATH=/usr/local/ssl/lib
+}
 
 OBJECTS_DIR = build
 MOC_DIR = build
 UI_DIR = build
 
+QMAKE_CXXFLAGS_RELEASE -= -g
+#QMAKE_CXXFLAGS_RELEASE -= -mtune=generic
+#QMAKE_CXXFLAGS_RELEASE += -mtune=native -march=native
 # use: qmake "RELEASE=1"
 contains(RELEASE, 1) {
     # Mac: compile for maximum compatibility (10.5, 32-bit)
